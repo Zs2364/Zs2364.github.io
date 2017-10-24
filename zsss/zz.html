@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#one {
+				width: 300px;
+				height: 300px;
+				background-color: skyblue;
+				text-align: center;
+			}
+		</style>
+
+	</head>
+	<body>
+		<h1 id="one" ondblclick="test()" onclick="test2()">BUG</h1>
+
+		<script type="text/javascript">
+		
+        var intervalTimer = 0;
+        function test2(e) {
+            clearTimeout(intervalTimer); 
+            intervalTimer = setTimeout(function () {
+                console.log("单击");
+            }, 300);
+        }
+        function test(e) {
+            clearTimeout(intervalTimer);
+           console.log("双击");
+        }
+		</script>
+
+	</body>
+</html>
