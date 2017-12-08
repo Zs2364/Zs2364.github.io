@@ -1,0 +1,88 @@
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				margin: 0;
+				padding: 0;
+				background-color: pink;
+			}
+			.container{
+				width: 100%;
+				min-height: 100%;
+				
+			}
+			button{
+				background-color: #000;
+				color: #fff;
+			}
+			.text{
+				text-align: center;
+				width: 80%;
+				min-height: 600px;
+				margin: 0 auto;
+			}
+			.text h2{
+				text-align: center;
+			}
+			.text p{
+				text-indent: 2em;
+				font-size: 15px;
+			}
+			[data-theme='blue']{
+			
+				background-size: 100%;
+				color: black;
+				border: 4px solid deepskyblue;
+			}
+			[data-theme='green']{
+				
+				background-size: 100%;
+				color: #fff;
+				border: 4px solid yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<button id="blue">图一</button>
+			<button id="green">图二</button>
+			<div class="text">
+				<h2>展示台</h2>
+				<p>我希望有个如你一般的人。 </p>
+				<p>如这山间清晨一般明亮清爽的人，</p> 
+				<p>如奔赴古城道路上阳光一般的人，</p> 
+				<p>温暖而不炙热，覆盖我所有肌肤。 </p>
+				<p>由起点到夜晚，由山野到书房，</p> 
+				<p>一切问题的答案都很简单。</p> 
+				<p>	我希望有个如你一般的人，贯彻未来，数遍生命的公路牌。</p>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			var oBlue=document.getElementById("blue");
+			var oGreen=document.getElementById("green");
+			var oText=document.querySelector(".text");
+
+			var curTheme=localStorage.getItem("theme");
+			
+			if(curTheme!=null){
+				oText.dataset.theme=curTheme;
+			}
+			localStorage.clear();
+			oBlue.addEventListener("click",setTheme);
+			oGreen.addEventListener("click",setTheme);
+			function setTheme(){
+				var target=event.target;
+				var id=target.id;
+				console.log(id);
+				oText.dataset.theme=id;
+				localStorage.setItem("theme",id);
+			}
+		</script>
+	</body>
+</html>
